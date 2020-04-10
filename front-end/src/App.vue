@@ -22,9 +22,9 @@
     <router-view />
 
     <div class="spacer"></div>
-    <div class="footer">
+    <div class="footer bg-light">
 
-      <a href="https://github.com/CalixBarrus/creative-project-3" target="_blank"><i class="fab fa-github-square"></i>Calix Barrus and Cassidy Waldrip</a>
+      <a href="https://github.com/CalixBarrus/creative-project-4" target="_blank"><i class="fab fa-github-square"></i>Calix Barrus and Cassidy Waldrip</a>
     </div>
 
 
@@ -59,7 +59,7 @@
     bottom: 0;
     width: 100%;
 
-    color: white;
+    /* background-color: lightgrey; */
     text-align: center;
   }
 

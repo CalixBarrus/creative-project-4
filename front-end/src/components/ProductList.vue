@@ -11,7 +11,7 @@
           <img :src="'/images/products/'+product.image">
         </div>
         <div class="product-profile">
-          <p>Quantity in stock: {{product.stock}}</p>
+          <p>Quantity in stock: {{product.stock}} {{product.unit}}s</p>
           <!-- <button class="favorite-button" @click="toggleFavorite(animal)" ><i :class={ far: animal.isFavorite, fas: !animal.isFavorite, 'fa-heart': true }></i></button> -->
         </div>
       </div>
