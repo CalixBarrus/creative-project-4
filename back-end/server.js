@@ -66,7 +66,6 @@ app.post('/api/animals', async (req, res) => {
   });
   try {
     await animal.save();
-    res.send(animal);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
@@ -74,42 +73,50 @@ app.post('/api/animals', async (req, res) => {
 });
 
 // Get a list of all of the items in the museum.
-// app.get('/api/items', async (req, res) => {
-//   try {
-//     let items = await Item.find();
-//     res.send(items);
-//   } catch (error) {
-//     console.log(error);
-//     res.sendStatus(500);
-//   }
-// });
+app.get('/api/animals', async (req, res) => {
+  try {
+    let animals = await Animal.find();
+    res.send(animals);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
 
-// app.delete('/api/items/:id', async (req, res) => {
-//   try {
-//     await Item.deleteOne({
-//       _id: req.params.id
-//     });
-//     res.sendStatus(200);
-//   } catch (error) {
-//     console.log(error);
-//     res.sendStatus(500);
-//   }
-// });
+app.delete('/api/animals/:id', async (req, res) => {
+  try {
+    await Animal.deleteOne({
+      _id: req.params.id
+    });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
 
-// app.put('/api/items/:id', async (req, res) => {
-//   try {
-//     let item = await Item.findOne({
-//       _id: req.params.id,
-//     });
-//     item.title = req.body.title
-//     item.description = req.body.description
-//     item.save()
-//     res.sendStatus(200);
-//   } catch (error) {
-//     console.log(error);
-//     res.sendStatus(500);
-//   }
-// });
+app.put('/api/animals/:id', async (req, res) => {
+  try {
+    let animal = await Animal.findOne({
+      _id: req.params.id,
+    });
+
+    animal.species = req.body.species;
+    animal.name = req.body.name;
+    animal["fav-activity"] = req.body["fav-activity"]
+    animal.weight = req.body.weight
+    animal.height = req.body.height
+    animal["fav-food"] = req.body["fav-food"]
+    animal.catchphrase = req.body.catchphrase
+    animal.image = req.body.image
+
+    animal.save()
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
 
 // API call definitions here
 

@@ -1,17 +1,10 @@
 let animals = [
 
-  {
-    id: 1,
-    species: "cow",
-    name: "Bessie",
-    "fav-activity": "Eating grass",
-    weight: "10 furkins",
-    height: "5 feet",
-    "fav-food": "grass",
-    catchphrase: "\"I'm fat and I'm happy!\"",
-    image: "cow.png",
-    isFavorite: false
-  },
+  // {
+  //   id: 1,
+  //   curl -d '{"species": "cow", "name": "Bessie", "fav-activity": "Eating grass", "weight": "10 furkins", "height": "5 feet", "fav-food": "grass", "catchphrase": "Im fat and Im happy!", "image": "cow.png" }' -H "Content-Type: application/json" -X POST localhost:3000/api/animals
+  //   isFavorite: false
+  // },
 
   {
     id: 2,

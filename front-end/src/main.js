@@ -9,6 +9,7 @@ import products from "./products-data.js";
 Vue.config.productionTip = false;
 
 let data = {
+  // TODO delete me
   animals: animals,
   products: products,
   favorites: []

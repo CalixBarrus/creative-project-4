@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Animals from "../views/Animals.vue";
 import Products from "../views/Products.vue";
+import Admin from "../views/Admin.vue";
 // import animals from "../animals-data.js";
 
 Vue.use(VueRouter);
@@ -23,6 +24,11 @@ const routes = [{
     path: "/store",
     name: "Products",
     component: Products,
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin,
   },
 
 ];
