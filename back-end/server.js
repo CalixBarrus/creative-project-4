@@ -66,6 +66,7 @@ app.post('/api/animals', async (req, res) => {
   });
   try {
     await animal.save();
+    res.send(animal);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);

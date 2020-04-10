@@ -8,13 +8,13 @@
           <p>{{animal.species}}</p>
         </div>
         <div class="image">
-          <img :src="'/images/animals/'+animal.image">
+          <img :src="animal.image">
         </div>
         <div class="animal-profile">
           <p>Weight: {{animal.weight}}</p>
           <p>Height: {{animal.height}}</p>
-          <p>Favorite Activity: {{animal["fav-activity"]}}</p>
-          <p>Favorite Food: {{animal["fav-food"]}}</p>
+          <p>Favorite Activity: {{animal["fav_activity"]}}</p>
+          <p>Favorite Food: {{animal["fav_food"]}}</p>
           <p>Catchphrase: {{animal.catchphrase}}</p>
           <!-- <button class="favorite-button" @click="toggleFavorite(animal)" ><i :class={ far: animal.isFavorite, fas: !animal.isFavorite, 'fa-heart': true }></i></button> -->
         </div>

@@ -2,7 +2,6 @@
 <div class="admin">
   <h1>The Admin Page!</h1>
   <div class="heading">
-    <div class="circle">1</div>
     <h2>Add an Animal</h2>
   </div>
   <div class="add">
@@ -31,12 +30,11 @@
     </div>
   </div>
   <div class="heading">
-     <div class="circle">2</div>
      <h2>Edit/Delete an Animal</h2>
    </div>
    <div class="edit">
      <div class="form">
-       <input v-model="findSpecies" placeholder="Search">
+       <input v-model="findName" placeholder="Search">
        <div class="suggestions" v-if="suggestions.length > 0">
          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectAnimal(s)">{{s.name}}
          </div>
@@ -175,7 +173,6 @@ export default {
         formData.append('photo', this.file, this.file.name)
         let r1 = await axios.post('/api/photos', formData);
         let r2 = await axios.post('/api/animals', {
-          // TODO add more parameters
           name: this.name,
           species: this.species,
           fav_activity: this.fav_activity,
@@ -193,7 +190,7 @@ export default {
     },
     async getAnimals() {
       try {
-        let response = await axios.get("/api/animals/");
+        let response = await axios.get("/api/animals");
         this.animals = response.data;
         return true;
       } catch (error) {
@@ -224,7 +221,7 @@ export default {
           height: this.findAnimal.height,
           fav_food: this.findAnimal.fav_food,
           catchphrase: this.findAnimal.catchphrase,
-
+          image: this.findAnimal.image,
         });
         this.findAnimal = null;
         this.getAnimals();
