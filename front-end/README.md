@@ -1,4 +1,4 @@
-# creative-project-3
+# front-end
 
 ## Project setup
 ```
