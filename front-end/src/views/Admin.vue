@@ -8,9 +8,13 @@
   <div class="add">
     <div class="form">
       <input v-model="name" placeholder="Name">
-      <p></p>
-      <textarea v-model="species" />
-      <!-- Put a bunch more input here -->
+      <input v-model="species" placeholder="Species">
+      <input v-model="fav_activity" placeholder="Favorite Activity">
+      <input v-model="weight" placeholder="Weight">
+      <input v-model="height" placeholder="Height">
+      <input v-model="fav_food" placeholder="Favorite Food">
+      <textarea v-model="catchphrase" placeholder="Catchphrase"/>
+
       <input type="file" name="photo" @change="fileChanged">
       <button @click="upload">Upload</button>
     </div>
@@ -18,6 +22,11 @@
       <!-- change this stuff -->
       <h2>{{addAnimal.name}}</h2>
       <p>{{addAnimal.species}}</p>
+      <p>{{addAnimal.fav_activity}}</p>
+      <p>{{addAnimal.weight}}</p>
+      <p>{{addAnimal.height}}</p>
+      <p>{{addAnimal.fav_food}}</p>
+      <p>{{addAnimal.catchphrase}}</p>
       <img :src="addAnimal.image" />
     </div>
   </div>
@@ -35,9 +44,13 @@
      </div>
      <div class="upload" v-if="findAnimal">
        <!-- Put more of profile here -->
-       <input v-model="findAnimal.species">
-       <p></p>
-       <textarea v-model="findAnimal.name" />
+      <input v-model="findAnimal.name" placeholder="Name">
+      <input v-model="findAnimal.species" placeholder="Species">
+      <input v-model="findAnimal.fav_activity" placeholder="Favorite Activity">
+      <input v-model="findAnimal.weight" placeholder="Weight">
+      <input v-model="findAnimal.height" placeholder="Height">
+      <input v-model="findAnimal.fav_food" placeholder="Favorite Food">
+      <textarea v-model="findAnimal.catchphrase" placeholder="Catchphrase"/>
        <img :src="findAnimal.image" />
      </div>
      <div class="actions" v-if="findAnimal">
@@ -89,6 +102,11 @@ button {
   font-size: 1em;
 }
 
+input,
+textarea {
+  display: block;
+}
+
 .form {
   margin-right: 50px;
 }
@@ -126,7 +144,11 @@ export default {
     return {
       name: "",
       species: "",
-      // add more data members here
+      fav_activity: "",
+      weight: "",
+      height: "",
+      fav_food: "",
+      catchphrase: "",
       file: null,
       addAnimal: null,
       animals: [],
@@ -156,6 +178,11 @@ export default {
           // TODO add more parameters
           name: this.name,
           species: this.species,
+          fav_activity: this.fav_activity,
+          weight: this.weight,
+          height: this.height,
+          fav_food: this.fav_food,
+          catchphrase: this.catchphrase,
           image: r1.data.path
         });
         this.addAnimal = r2.data;
@@ -190,9 +217,14 @@ export default {
     async editAnimal(animal) {
       try {
         await axios.put("/api/animals/" + animal._id, {
-          // TODO Add more stuff here
           name: this.findAnimal.name,
           species: this.findAnimal.species,
+          fav_activity: this.findAnimal.fav_activity,
+          weight: this.findAnimal.weight,
+          height: this.findAnimal.height,
+          fav_food: this.findAnimal.fav_food,
+          catchphrase: this.findAnimal.catchphrase,
+
         });
         this.findAnimal = null;
         this.getAnimals();

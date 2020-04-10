@@ -29,10 +29,10 @@ const upload = multer({
 const animalSchema = new mongoose.Schema({
   species: String,
   name: String,
-  "fav-activity": String,
+  fav_activity: String,
   weight: String,
   height: String,
-  "fav-food": String,
+  fav_food: String,
   catchphrase: String,
   image: String
 });
@@ -57,10 +57,10 @@ app.post('/api/animals', async (req, res) => {
   const animal = new Animal({
     species: req.body.species,
     name: req.body.name,
-    "fav-activity": req.body["fav-activity"],
+    fav_activity: req.body.fav_activity,
     weight: req.body.weight,
     height: req.body.height,
-    "fav-food": req.body["fav-food"],
+    fav_food: req.body.fav_food,
     catchphrase: req.body.catchphrase,
     image: req.body.image
   });
@@ -103,10 +103,10 @@ app.put('/api/animals/:id', async (req, res) => {
 
     animal.species = req.body.species;
     animal.name = req.body.name;
-    animal["fav-activity"] = req.body["fav-activity"]
+    animal.fav_activity = req.body.fav_activity
     animal.weight = req.body.weight
     animal.height = req.body.height
-    animal["fav-food"] = req.body["fav-food"]
+    animal.fav_food = req.body.fav_food
     animal.catchphrase = req.body.catchphrase
     animal.image = req.body.image
 
